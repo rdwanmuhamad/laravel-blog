@@ -86,7 +86,7 @@ Route::get('posts/{slug}', function($slug) {
     }
 
     return view('pages.single-post',[
-        'post' => $post
+        'post' => $new_post
     ]);
 });
 
