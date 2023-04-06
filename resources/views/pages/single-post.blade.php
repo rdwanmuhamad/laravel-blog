@@ -8,7 +8,7 @@
     <div class="container mt-4">
         <article class="mb-5">
             <h2>{{ $post->title }}</h2>
-            <h5>{{ $post->author }}</h5>
+            <p>By Muhamad Ridwan in <a href="/categories/{{ $post->category->slug }}">{{ $post->category->name }}</a></p>
             <p>{!! $post->content !!}</p>
         </article>
         <a href="/posts">Back to posts</a>

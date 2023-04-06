@@ -1,11 +1,12 @@
 @extends('layouts.main')
 
 @section('title')
-    Post
+    Categories
 @endsection
 
 @section('content')
     <div class="container mt-4">
+        {{-- <h1>Post Category : {{ $category }}</h1> --}}
         @foreach ($posts as $post)
             <article class="mb-5">
                 <a href="{{ route('posts', $post->slug) }}">
