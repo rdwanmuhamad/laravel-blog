@@ -11,7 +11,7 @@
                 <a href="{{ route('posts', $post->slug) }}">
                     <h2>{{ $post->title }}</h2>
                 </a>
-                <p>By Muhamad Ridwan in <a href="/categories/{{ $post->category->slug }}">{{ $post->category->name }}</a></p>
+                <p>By Muhamad Ridwan in <a href="/category/{{ $post->category->slug }}">{{ $post->category->name }}</a></p>
                 <p>{{ $post->excerpt }}</p>
             </article>
         @endforeach
