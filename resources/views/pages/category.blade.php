@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="container mt-4">
-        <h1>Post Category : {{ $category }}</h1>
+        <h1 class="mb-3">Post by Category : {{ $category }}</h1>
         @foreach ($posts as $post)
             <article class="mb-5">
                 <a href="{{ route('posts', $post->slug) }}">
