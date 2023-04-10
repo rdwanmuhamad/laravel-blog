@@ -1,9 +1,12 @@
 <?php
 
-use App\Http\Controllers\PostController;
-use App\Models\Category;
 use App\Models\Post;
+use App\Models\Category;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +48,13 @@ Route::get('/category/{category:slug}', function(Category $category) {
         'title' => $category->name,
         'posts' => $category->posts,
         'name' => $category->name
+    ]);
+});
+
+Route::get('/author/{user:username}', function(User $user) {
+    return view('pages.user', [
+        'title' => 'User Post',
+        'posts' => $user->posts,
     ]);
 });
 
