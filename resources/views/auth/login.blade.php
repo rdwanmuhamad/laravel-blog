@@ -8,7 +8,6 @@
             <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
             <div class="form-floating">
-                {{-- <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"> --}}
                 <input id="floatingInput" type="email" class="form-control @error('email') is-invalid @enderror"
                     name="email" value="{{ old('email') }}" required autocomplete="email" autofocus
                     placeholder="name@example.com">
@@ -21,7 +20,6 @@
                 <label for="floatingInput">Email address</label>
             </div>
             <div class="form-floating">
-                {{-- <input type="password" class="form-control" id="floatingPassword" placeholder="Password"> --}}
                 <input id="floatingPassword" type="password" class="form-control @error('password') is-invalid @enderror"
                     name="password" required autocomplete="current-password" placeholder="Password">
 
@@ -40,12 +38,6 @@
                 </label>
             </div>
             <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-
-            {{-- @if (Route::has('password.request'))
-                <a class="btn btn-link" href="{{ route('password.request') }}">
-                    {{ __('Forgot Your Password?') }}
-                </a>
-            @endif --}}
             <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
         </form>
     </main>

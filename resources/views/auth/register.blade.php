@@ -1,6 +1,76 @@
-@extends('layouts.app')
+@extends('layouts.login')
 
 @section('content')
+    <main class="form-signin w-100 m-auto">
+        <form method="POST" action="{{ route('register') }}">
+            @csrf
+            <img class="mb-4" src="{{ asset('img/bootstrap-logo.svg') }}" alt="" width="72" height="57">
+            <h1 class="h3 mb-3 fw-normal">Please Register</h1>
+
+            <div class="form-floating mb-3">
+                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name"
+                    value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Name">
+
+                @error('name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+                <label for="floatingName">Name</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username"
+                    value="{{ old('username') }}" required autocomplete="username" autofocus placeholder="Username">
+
+                @error('username')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+                <label for="floatingName">Username</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                    name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email">
+
+                @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+                <label for="floatingName">Email</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
+                    name="password" required autocomplete="new-password" placeholder="Password">
+
+                @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+                <label for="floatingName">Password</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input id="password-confirm" type="password"
+                    class="form-control @error('password-onfirm') is-invalid @enderror" name="password_confirmation"
+                    required autocomplete="new-password" placeholder="Confirm Password">
+                @error('password-confirm')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+                <label for="floatingName">Confirm Password</label>
+            </div>
+
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
+            <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
+        </form>
+    </main>
+@endsection
+
+
+{{-- @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -74,4 +144,4 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}
