@@ -19,8 +19,9 @@
                 <label for="floatingName">Name</label>
             </div>
             <div class="form-floating mb-3">
-                <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username"
-                    value="{{ old('username') }}" required autocomplete="username" autofocus placeholder="Username">
+                <input id="username" type="text" class="form-control @error('username') is-invalid @enderror"
+                    name="username" value="{{ old('username') }}" required autocomplete="username" autofocus
+                    placeholder="Username">
 
                 @error('username')
                     <span class="invalid-feedback" role="alert">
@@ -64,7 +65,9 @@
             </div>
 
             <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
-            <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
+            <small>
+                <p class="mt-3 mb-3 text-muted">Already account! <a href="{{ route('register') }}">Sign Up</a></p>
+            </small>
         </form>
     </main>
 @endsection
