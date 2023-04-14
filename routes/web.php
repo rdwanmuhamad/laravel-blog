@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\User;
@@ -58,6 +59,8 @@ Route::get('/author/{user:username}', function(User $user) {
         'posts' => $user->posts->load('category', 'user'),
     ]);
 });
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 Auth::routes();
 

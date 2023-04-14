@@ -22,14 +22,40 @@
                  </li>
              </ul>
 
-             <ul class="navbar-nav ms-auto">
-                 <li class="nav-item me-3">
-                     <a class="nav-lin btn btn-success" href="{{ route('login') }}"><i class="bi bi-person-circle"></i> Sign In</a>
-                 </li>
-                 <li class="nav-item">
-                     <a class="nav-link text-decoration-underline" href="{{ route('register') }}">Sign Up</a>
-                 </li>
-             </ul>
+             @guest
+                 <ul class="navbar-nav ms-auto">
+                     <li class="nav-item me-3">
+                         <a class="nav-lin btn btn-success" href="{{ route('login') }}"><i class="bi bi-person-circle"></i>
+                             Sign In</a>
+                     </li>
+                     <li class="nav-item">
+                         <a class="nav-link text-decoration-underline" href="{{ route('register') }}">Sign Up</a>
+                     </li>
+                 </ul>
+             @endguest
+
+             @auth
+                 <ul class="navbar-nav ms-auto">
+                     <li class="nav-item dropdown">
+                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                             <i class="bi bi-person-circle"></i> Hi, {{ Auth::user()->name }}
+                         </a>
+
+                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                             <a class="dropdown-item" href="{{ route('logout') }}"
+                                 onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                 {{ __('Logout') }}
+                             </a>
+
+                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                 @csrf
+                             </form>
+                         </div>
+                     </li>
+                 </ul>
+             @endauth
          </div>
      </div>
  </nav>
